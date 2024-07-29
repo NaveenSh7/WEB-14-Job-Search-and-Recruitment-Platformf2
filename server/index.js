@@ -10,7 +10,7 @@ const ProfileModel = require('./models/ProfileData');
 app.use(express.json());
 app.use(cors(
 {
-  origin: [""],
+  origin: ["https://jobtrex-job-search-and-recruitment-platform-frontend.vercel.app/"],
   methods:["POST","PUT","GET" ,"DELETE"],
   credentials:true
 }
