@@ -8,15 +8,20 @@ const AppliedModel = require('./models/Applied');
 const ProfileModel = require('./models/ProfileData');
 
 app.use(express.json());
-app.use(cors(
-{
-  origin: ["https://jobtrex-job-search-and-recruitment-platform-frontend.vercel.app"],
-  methods:["POST","PUT","GET" ,"DELETE"],
-  credentials:true
-}
- 
 
-));
+
+const corsOptions = {
+  origin: 'https://jobtrex-job-search-and-recruitment-platform-frontend.vercel.app',
+  methods: ['GET', 'POST', 'PUT', 'DELETE'],
+  credentials: true,
+  allowedHeaders: ['Content-Type', 'Authorization'],
+  optionsSuccessStatus: 200 // For legacy browser support
+};
+
+app.use(cors(corsOptions));
+
+//for local
+// app.use(cors());
 
 require('dotenv').config();
 
