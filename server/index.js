@@ -27,7 +27,9 @@ app.options('*', cors(corsOptions));
 require('dotenv').config();
 
 const mongoURI = process.env.MONGO_URI;
-const port = process.env.PORT || 5000;
+
+
+ const port="https://jobtrex-job-search-and-recruitment-platform.vercel.app/"
 
 // Ensure the uploads directory exists
 // const uploadDir = path.join(__dirname, 'uploads');
