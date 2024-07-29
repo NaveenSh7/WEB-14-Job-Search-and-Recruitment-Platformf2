@@ -108,7 +108,7 @@ export const Navbar = () => {
                 title="Login"
               >
                 {isAuthenticated ? (
-                  <button onClick={() => logout({ returnTo: window.location.origin })}>
+                  <button onClick={() => logout({ returnTo: "https://jobtrex-job-search-and-recruitment-platform-frontend.vercel.app/" })}>
                     Logout
                   </button>
                 ) : (
