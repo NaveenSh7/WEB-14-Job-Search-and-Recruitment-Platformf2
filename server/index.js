@@ -60,7 +60,7 @@ mongoose.connect(mongoURI, {
 .catch(err => console.log('MongoDB Connection Error: ', err));
 
 
-app.post('/', async (req, res) => {
+app.get('/', async (req, res) => {
  res.send("HOLA");
 });
 
