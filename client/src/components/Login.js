@@ -112,7 +112,7 @@ const About = () => {
             <h2 className="text-xl font-bold mb-4">Are U Sure ?🤨</h2>
             <button
              className="text-black-700 hover:text-white border border-black-700 hover:bg-red-600 focus:ring-4 focus:outline-none focus:ring-red-600 font-medium rounded-lg text-sm px-5 py-2.5 text-center mb-2 dark:border-red-400 dark:text-red-400 dark:hover:text-white dark:hover:bg-red-500 dark:focus:ring-red-900"
-              onClick={() => logout()}
+              onClick={() => logout({returnTo: "https://jobtrex-job-search-and-recruitment-platform-frontend.vercel.app/"})}
             >
               Logout
             </button>
