@@ -19,6 +19,7 @@ const corsOptions = {
 };
 
 app.use(cors(corsOptions));
+app.options('*', cors(corsOptions));
 
 //for local
 // app.use(cors());
