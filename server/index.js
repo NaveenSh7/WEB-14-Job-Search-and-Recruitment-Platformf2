@@ -59,6 +59,12 @@ mongoose.connect(mongoURI, {
 .then(() => console.log('MongoDB Connected'))
 .catch(err => console.log('MongoDB Connection Error: ', err));
 
+
+app.post('/', async (req, res) => {
+ res.send("HOLA");
+});
+
+
 app.post("/postJob", async (req, res) => {
   try {
     const {
