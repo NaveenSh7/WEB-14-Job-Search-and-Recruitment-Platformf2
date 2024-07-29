@@ -4,6 +4,7 @@ import { useAuth0 } from "@auth0/auth0-react";
 import { useNavigate, useParams } from 'react-router-dom';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+const port = "https://jobtrex-job-search-and-recruitment-platform.vercel.app/";
 
 const FillJob = () => {
   const [UserName, setUserName] = useState("");
@@ -21,9 +22,9 @@ const FillJob = () => {
     e.preventDefault();
     setStatus("Pending");
 
-    const response = await Axios.get(`http://localhost:5000/GetJobById/${jobId}`);
+    const response = await Axios.get(`${port}GetJobById/${jobId}`);
 
-    Axios.post("http://localhost:5000/applyJOB", {
+    Axios.post(`${port}applyJOB`, {
       UserName,
       ContactEmail,
       UserGithub,

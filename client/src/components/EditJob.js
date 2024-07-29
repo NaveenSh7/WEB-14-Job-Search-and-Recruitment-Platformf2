@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import Axios from 'axios';
 import { useAuth0 } from "@auth0/auth0-react";
 import { useNavigate, useParams } from 'react-router-dom';
+const port = "https://jobtrex-job-search-and-recruitment-platform.vercel.app/";
 
 const EditJob = () => {
   const { user, isAuthenticated } = useAuth0();
@@ -22,7 +23,7 @@ const EditJob = () => {
   useEffect(() => {
     const fetchJob = async () => {
       try {
-        const response = await Axios.get(`http://localhost:5000/GetJobById/${id}`);
+        const response = await Axios.get(`${port}GetJobById/${id}`);
         const job = response.data;
         setRole(job.Role);
         setCompanyName(job.CompanyName);
@@ -59,7 +60,7 @@ const EditJob = () => {
     };
 
     try {
-      await Axios.put(`http://localhost:5000/EditJob/${id}`, updatedJob);
+      await Axios.put(`${port}EditJob/${id}`, updatedJob);
       alert("Job updated successfully");
       navigate('/Dashboard');
     } catch (error) {

@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import Axios from "axios";
 import { useAuth0 } from "@auth0/auth0-react";
 import { useParams } from "react-router-dom";
+const port = "https://jobtrex-job-search-and-recruitment-platform.vercel.app/";
 
 const MDashboard = () => {
   const { isAuthenticated, isLoading } = useAuth0();
@@ -10,7 +11,7 @@ const MDashboard = () => {
 
   const getAppliedJobs = async () => {
     try {
-      const response = await Axios.get("http://localhost:5000/GetAppliedJobs");
+      const response = await Axios.get(`${port}GetAppliedJobs`);
       setAllAppliedJobs(response.data.data3);
     } catch (error) {
       console.log("error", error);
@@ -34,7 +35,7 @@ const MDashboard = () => {
   const handleAcc = async (editJobId) => {
     try {
       const response = await Axios.put(
-        `http://localhost:5000/editAppliedJob/${editJobId}`,
+        `${port}editAppliedJob/${editJobId}`,
         { status: "Accepted" }
       );
       if (response.data.success) {
@@ -49,7 +50,7 @@ const MDashboard = () => {
   const handleDec = async (editJobId) => {
     try {
       const response = await Axios.put(
-        `http://localhost:5000/editAppliedJob/${editJobId}`,
+        `${port}editAppliedJob/${editJobId}`,
         { status: "Declined" }
       );
       if (response.data.success) {

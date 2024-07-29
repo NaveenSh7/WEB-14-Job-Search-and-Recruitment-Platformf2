@@ -4,6 +4,7 @@ import { useAuth0 } from "@auth0/auth0-react";
 import Axios from "axios";
 import { FiSearch } from "react-icons/fi";
 import Sidebar from "./Sidebar";
+const port = "https://jobtrex-job-search-and-recruitment-platform.vercel.app/";
 
 const Home = () => {
   const { user, isAuthenticated } = useAuth0();
@@ -35,7 +36,7 @@ const Home = () => {
 
   const getUsers = async () => {
     try {
-      const response = await Axios.get("http://localhost:5000/GetUsers");
+      const response = await Axios.get(`${port}GetUsers`);
       setAllUsers(response.data.data2);
     } catch (error) {
       console.log("error", error);
@@ -53,7 +54,7 @@ const Home = () => {
           (bkndUser) => bkndUser.userEmail === user.email
         );
         if (!userExists) {
-          Axios.post("http://localhost:5000/loginInfo", {
+          Axios.post(`${port}loginInfo`, {
             userName: user.name,
             userEmail: user.email,
           })

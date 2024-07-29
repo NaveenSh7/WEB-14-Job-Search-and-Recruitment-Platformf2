@@ -20,6 +20,8 @@ const Create = () => {
   const [Location, setLocation] = useState("Bengaluru");
   const [Logo, setLogo] = useState("https://upload.wikimedia.org/wikipedia/commons/4/44/Microsoft_logo.svg");
 
+  const port = "https://jobtrex-job-search-and-recruitment-platform.vercel.app/";
+
   const HandleSubmit = async (e) => {
     e.preventDefault();
 
@@ -41,7 +43,7 @@ const Create = () => {
       Logo
     };
 
-    Axios.post("http://localhost:5000/postJob", { blog })
+    Axios.post(`${port}postJob`, { blog })
       .then(() => {
         {  toast.success('Job Uploaded Succesfully', {
           position: "top-right",

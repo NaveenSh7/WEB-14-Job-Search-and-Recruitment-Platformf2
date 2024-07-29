@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useAuth0 } from "@auth0/auth0-react";
 import Axios from 'axios';
+const port = "https://jobtrex-job-search-and-recruitment-platform.vercel.app/";
 
 const Dashboard2 = () => {
     const { user, isAuthenticated, isLoading } = useAuth0();
@@ -9,7 +10,7 @@ const Dashboard2 = () => {
     // To get Jobs Applied
     const getAppliedJobs = async () => {
         try {
-            const response = await Axios.get("http://localhost:5000/GetAppliedJobs");
+            const response = await Axios.get(`${port}GetAppliedJobs`);
             setAllAppliedJobs(response.data.data3);
         } catch (error) {
             console.log("error", error);

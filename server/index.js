@@ -8,7 +8,15 @@ const AppliedModel = require('./models/Applied');
 const ProfileModel = require('./models/ProfileData');
 
 app.use(express.json());
-app.use(cors());
+app.use(cors(
+{
+  origin: [""],
+  methods:["POST","PUT","GET" ,"DELETE"],
+  credentials:true
+}
+ 
+
+));
 
 require('dotenv').config();
 

@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import Axios from 'axios';
 import { useNavigate, useParams } from 'react-router-dom';
+const port = "https://jobtrex-job-search-and-recruitment-platform.vercel.app/";
 const Completeprofile = () => {
   const [Linkedin, setLinkedin] = useState("");
   const [Github, setGithub] = useState("");
@@ -9,13 +10,14 @@ const Completeprofile = () => {
   const navigate = useNavigate();
   const { id: CId } = useParams();
   const [isLoading, setIsLoading] = useState(false); // Assuming you want to use this for loading state
-
+  const port = "https://jobtrex-job-search-and-recruitment-platform.vercel.app/";
+ 
   const HandleSubmit = async (e) => {
     e.preventDefault();
     setIsLoading(true); // Start loading
 
     try {
-      await Axios.post("http://localhost:5000/C", {
+      await Axios.post( `${port}C`, {
         Linkedin,
         Github,
         Aboutme,

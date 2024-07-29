@@ -3,6 +3,8 @@ import Axios from 'axios';
 import location from './images/location.png';
 import ReadMore from "./ReadMore";
 
+const port = "https://jobtrex-job-search-and-recruitment-platform.vercel.app/";
+
 const Cards = ({ query, selectedLocation, selectedRole, minSalary }) => {
     const [allJobs, setAllJobs] = useState([]);
 
@@ -16,7 +18,7 @@ const Cards = ({ query, selectedLocation, selectedRole, minSalary }) => {
 
     const getJobs = async () => {
         try {
-            const response = await Axios.get("http://localhost:5000/GetJobs");
+            const response = await Axios.get(`${port}GetJobs`);
             setAllJobs(response.data.data1);
         } catch (error) {
             console.log("error", error);

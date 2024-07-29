@@ -3,6 +3,7 @@ import Axios from 'axios';
 import { useAuth0 } from '@auth0/auth0-react';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+const port = "https://jobtrex-job-search-and-recruitment-platform.vercel.app/";
 
 const ProfilePage = () => {
     const { user, isAuthenticated , isLoading} = useAuth0();
@@ -26,7 +27,7 @@ const ProfilePage = () => {
         
 
         try {
-            const response = await Axios.post("http://localhost:5000/ProfileInfo", {
+            const response = await Axios.post(`${port}ProfileInfo`, {
                 UEmail: user.email,
                 ...profile
             });
@@ -55,7 +56,7 @@ const ProfilePage = () => {
     // Fetch profile data
     const getProfile = async () => {
         try {
-            const response = await Axios.get(`http://localhost:5000/Getprofile/${user.email}`);
+            const response = await Axios.get(`${port}Getprofile/${user.email}`);
            
             setProfile(response.data);
             

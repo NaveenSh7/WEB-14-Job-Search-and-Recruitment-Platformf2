@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useAuth0 } from "@auth0/auth0-react";
 import { useNavigate } from 'react-router-dom';
 import Axios from 'axios';
+const port = "https://jobtrex-job-search-and-recruitment-platform.vercel.app/";
 
 const Dashboard = () => {
   const { user, isAuthenticated, isLoading } = useAuth0();
@@ -10,7 +11,7 @@ const Dashboard = () => {
 
   const getJobs = async () => {
     try {
-      const response = await Axios.get("http://localhost:5000/GetJobs");
+      const response = await Axios.get( `${port}GetJobs`);
       setAllJobs(response.data.data1);
     } catch (error) {
       console.log("error", error);
@@ -48,7 +49,7 @@ const Dashboard = () => {
   const deleteJob = async (id) => {
     if (window.confirm("Are you sure you want to delete this job?")) {
       try {
-        await Axios.delete(`http://localhost:5000/DeleteJob/${id}`);
+        await Axios.delete( `${port}DeleteJob/${id}`);
         alert("Successfully deleted");
         setAllJobs(allJobs.filter(job => job._id !== id));
       } catch (err) {
