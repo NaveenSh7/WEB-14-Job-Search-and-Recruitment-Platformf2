@@ -4,6 +4,7 @@ import './index.css';
 import {BrowserRouter }  from "react-router-dom";
 import { Auth0Provider } from '@auth0/auth0-react';
 
+
 import App from './App';
 
 
@@ -16,7 +17,7 @@ root.render(
     domain="dev-pl28u4d5f31ah1z7.us.auth0.com"
     clientId="XYyX7GXUeMZqPOsT5mSBiYzClCEMR5eG"
     authorizationParams={{
-      redirect_uri: window.location.origin
+      redirect_uri: isLocalhost ? 'http://localhost:3000' : 'https://jobtrex-job-search-and-recruitment-platform-frontend.vercel.app',
     }}
   >
 
