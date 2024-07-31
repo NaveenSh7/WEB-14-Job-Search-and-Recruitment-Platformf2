@@ -35,10 +35,13 @@ export const Navbar = () => {
               <rect x="3" y="17" width="7" height="6" />
               <rect x="14" y="1" width="7" height="6" />
               <rect x="14" y="11" width="7" height="12" />
-            </svg>
-            <span className="ml-2 text-3xl font-bold tracking-wide text-[#222831]">
+              </svg>
+          {isMenuOpen?(<></>):(
+
+<span className="ml-2 text-3xl font-bold tracking-wide text-[#222831]">
               JobTreX
             </span>
+          )}  
           </a>
           <ul className="items-center hidden space-x-8 lg:flex">
             <li>
@@ -209,24 +212,44 @@ export const Navbar = () => {
                         </a>
                       </li>
                       <li>
-                        <a
-                          href="/Dashboard"
-                          aria-label="Dashboard"
-                          title="Dashboard"
-                          className={`font-medium tracking-wide text-gray-700 transition-colors duration-200 px-3 py-2 rounded ${isActive('/Dashboard') ? 'bg-[#393E46] text-white' : 'hover:text-white hover:bg-[#393E46]'}`}
+
+                        {userRole === 'employer' ? (
+                          <a
+                            href="/Dashboard"
+                            aria-label="Dashboard"
+                            title="Dashboard"
+                            className={`font-medium tracking-wide text-gray-700 transition-colors duration-200 px-3 py-2 rounded ${isActive('/Dashboard') ? 'bg-[#393E46] text-white' : 'hover:text-white hover:bg-[#393E46]'}`}
+                          >
+                            Dashboard
+                          </a>
+
+                        ) : (<a
+                          href="/Dashboard2"
+                          aria-label="Dashboard2"
+                          title="Dashboard2"
+                          className={`font-medium tracking-wide text-gray-700 transition-colors duration-200 px-3 py-2 rounded ${isActive('/Dashboard2') ? 'bg-[#393E46] text-white' : 'hover:text-white hover:bg-[#393E46]'}`}
                         >
                           Dashboard
-                        </a>
+                        </a>)}
+
                       </li>
                       <li>
-                        <a
-                          href="/PostJob"
-                          aria-label="PostJob"
-                          title="PostJob"
-                          className={`font-medium tracking-wide text-gray-700 transition-colors duration-200 px-3 py-2 rounded ${isActive('/PostJob') ? 'bg-[#393E46] text-white' : 'hover:text-white hover:bg-[#393E46]'}`}
-                        >
-                          PostJob
-                        </a>
+
+                        {userRole === 'employer' ? (
+
+                          <a
+                            href="/PostJob"
+                            aria-label="PostJob"
+                            title="PostJob"
+                            className={`font-medium tracking-wide text-gray-700 transition-colors duration-200 px-3 py-2 rounded ${isActive('/PostJob') ? 'bg-[#393E46] text-white' : 'hover:text-white hover:bg-[#393E46]'}`}
+                          >
+                            PostJob
+                          </a>
+
+                        ) : (
+                          <></>
+                        )}
+
                       </li>
                       <li>
                         <a
