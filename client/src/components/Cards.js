@@ -3,11 +3,18 @@ import Axios from 'axios';
 import location from './images/location.png';
 import ReadMore from "./ReadMore";
 
+import { Navigate, useNavigate } from "react-router-dom"; // Import useNavigate
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
+const userRole = localStorage.getItem('userRole');
 const port = "https://jobtrex-job-search-and-recruitment-platform.vercel.app/";
 
 const Cards = ({ query, selectedLocation, selectedRole, minSalary }) => {
     const [allJobs, setAllJobs] = useState([]);
 
+     
+    const navigate = useNavigate(); // Initialize useNavigate
     const formatDate = (deadline) => {
         const date = new Date(deadline);
         const day = date.getDate().toString().padStart(2, '0');
@@ -45,6 +52,23 @@ const Cards = ({ query, selectedLocation, selectedRole, minSalary }) => {
         );
     }
 
+    const onApply = (id) => {
+    
+        
+        if (userRole === "employer") {
+
+            {toast.warn('Please login as Candidate to apply', {
+                position: "top-right",
+                autoClose: 2000,
+                theme: "dark",
+            });}
+            
+        } else {
+                navigate(`/Apply/${id}`); 
+           
+        }
+    }
+
     const renderCards = () => {
         return filteredItems.map((job, index) => (
             <div key={index} className=" sm:w-1/2 md:w-1/2 lg:w-1/3 p-2 lg:p-3 mt-10">
@@ -76,9 +100,11 @@ const Cards = ({ query, selectedLocation, selectedRole, minSalary }) => {
                                 </div>
                             </div>
                             <div className="flex justify-between items-center py-3 border-b-2 text-xs text-white font-medium">
-                                <a href={`/Apply/${job._id}`} className="px-4 py-2 rounded-full bg-[#3C5B6F] hover:bg-[#393E46] flex m-auto ">
+                            <button
+                                    onClick={() => onApply(job._id)}
+                                    className="px-4 py-2 rounded-full bg-[#3C5B6F] hover:bg-[#393E46] flex m-auto">
                                     Apply now
-                                </a>
+                                </button>
                             </div>
                             <div className="flex items-center mt-4">
                                 <div className="px-3 bg-[#DDDDDD] rounded-full text-black font-medium text-center">
@@ -92,6 +118,7 @@ const Cards = ({ query, selectedLocation, selectedRole, minSalary }) => {
                         </div>
                     </a>
                 </div>
+                <ToastContainer />
             </div>
         ));
     };
