@@ -106,7 +106,7 @@ const Create = () => {
             >
               <option value="Web Developer">Web Developer</option>
               <option value="Cybersecurity Analyst">Cybersecurity Analyst</option>
-              <option value="Data Science">Data Science</option>
+              <option value="Data Science">Data Scientist</option>
               <option value="Systems Analyst">Systems Analyst</option>
               <option value="Network Administrator">Network Administrator</option>
               <option value="Cloud Architect">Cloud Architect</option>
@@ -124,7 +124,7 @@ const Create = () => {
             />
           </div>
           <div className="flex flex-col items-center">
-            <label className="mb-1 font-semibold text-gray-700">Minimum Salary</label>
+            <label className="mb-1 font-semibold text-gray-700">Minimum Salary (in $)</label>
             <input
               type="number"
               required
@@ -134,7 +134,7 @@ const Create = () => {
             />
           </div>
           <div className="flex flex-col items-center">
-            <label className="mb-1 font-semibold text-gray-700">Maximum Salary</label>
+            <label className="mb-1 font-semibold text-gray-700">Maximum Salary (in $)</label>
             <input
               type="number"
               required

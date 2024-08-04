@@ -3,7 +3,7 @@ import React from "react";
 const MinSalary = ({ onMinSalaryChange }) => {
   return (
     <div>
-      <h4 className="text-lg font-medium mb-2">Minimum Salary</h4>
+      <h4 className="text-lg font-medium mb-2">Minimum Salary (in $)</h4>
       <div>
         <input
           type="number"
