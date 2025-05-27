@@ -6,7 +6,7 @@ module.exports = {
         'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
       },
       backgroundImage: {
-        'custom-bg': "url('https://www.hirehubstaffings.com/images/abt-img2.jpg')",
+        'custom-bg': "url('https://media.licdn.com/dms/image/v2/C4E12AQHHMdxujKXo6w/article-cover_image-shrink_720_1280/article-cover_image-shrink_720_1280/0/1646520962869?e=2147483647&v=beta&t=yZp5DMgmge7aX_36_DYlumM0XEuzcfrLSEUBWfNqVNA')",
       },
       boxShadow: {
         '3xl': '60px 60px 60px 60px rgba(0, 0, 0, 0.3)',
