@@ -13,9 +13,7 @@ import Dashboard2 from './components/Dashboard2';
 import Manage from './components/Manage';
 import Footer1 from './components/Footer';
 import EditJob from './components/EditJob';
-
 import './App.css';
-
 
 function App() {
   const location = useLocation();
