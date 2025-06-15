@@ -24,12 +24,12 @@ app.options('*', cors(corsOptions));
 
 // Saas Monitering 
 
-const Logger = require('saas-monitering-sdk');
+// const Logger = require('saas-monitering-sdk');
 
-Logger.init({
-  secret: 'https://jobtrex-job-search-and-recruitment-platform.vercel.app',
-});
-app.use(Logger.middleware());
+// Logger.init({
+//   secret: 'https://jobtrex-job-search-and-recruitment-platform.vercel.app',
+// });
+// app.use(Logger.middleware());
 
 //for local
 // app.use(cors());
