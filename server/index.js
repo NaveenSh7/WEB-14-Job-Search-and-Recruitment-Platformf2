@@ -22,7 +22,7 @@ app.use(cors(corsOptions));
 app.options('*', cors(corsOptions));
 
 
-// Saas Monitering 
+// Saas Monitering for node
 
 const Logger = require('saas-monitering-sdk');
 
