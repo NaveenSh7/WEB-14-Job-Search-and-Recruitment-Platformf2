@@ -29,6 +29,7 @@ const Logger = require('saas-monitering-sdk');
 Logger.init({
   secret: 6,
 });
+
 app.use(Logger.middleware());
 
 // for local
