@@ -23,7 +23,7 @@ app.options('*', cors(corsOptions));
 
 
 // Saas Monitering for node
-
+app.set('trust proxy', true);
 const Logger = require('saas-monitering-sdk');
 
 Logger.init({
