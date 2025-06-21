@@ -27,7 +27,7 @@ app.set('trust proxy', true);
 const Logger = require('saas-monitering-sdk');
 
 Logger.init({
-  secret: 6,
+  api_key: '7777777777',
 });
 
 app.use(Logger.middleware());
